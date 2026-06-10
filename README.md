@@ -69,14 +69,14 @@ If the body mechanic and emotion conflict, the skill should say so instead of pr
 
 ## Example Images
 
-These are small original pose diagrams included only to show the expected reference style. They are not dataset images.
+These are imagegen-generated pose reference images included to show the expected output style. They are not dataset images.
 
 | Request | Example |
 | --- | --- |
-| `孤独 背影 离场` | ![Lonely back-view leaving pose](examples/images/lonely-back-view-leaving.svg) |
-| `无聊 托腮 等待` | ![Bored chin-rest waiting pose](examples/images/bored-chin-rest-waiting.svg) |
-| `冷淡 抱臂` | ![Defensive crossed-arms pose](examples/images/defensive-crossed-arms.svg) |
-| `惊恐 后退` | ![Fear recoil retreat pose](examples/images/fear-recoil-retreat.svg) |
+| `孤独 背影 离场` | ![Lonely back-view leaving pose](examples/images/lonely-back-view-leaving.png) |
+| `无聊 托腮 等待` | ![Bored chin-rest waiting pose](examples/images/bored-chin-rest-waiting.png) |
+| `冷淡 抱臂` | ![Defensive crossed-arms pose](examples/images/defensive-crossed-arms.png) |
+| `惊恐 后退` | ![Fear recoil retreat pose](examples/images/fear-recoil-retreat.png) |
 
 ## Boundary
 
@@ -86,4 +86,4 @@ If you use your own reference images, make sure you have the right to store and 
 
 ## License
 
-Code, documentation, and included original SVG examples are released under the MIT License.
+Code, documentation, and included generated example images are released under the MIT License.
