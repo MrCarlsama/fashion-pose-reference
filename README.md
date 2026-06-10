@@ -1,157 +1,89 @@
 # Fashion Pose Reference
 
-Contract-backed fashion pose retrieval for drawing, cosplay preproduction, and mannequin/stick-figure image prompting.
+A Codex skill for turning emotion/action words into strict body-pose references and mannequin/stick-figure image prompts.
 
-This repository is code-only. It does not publish the local image corpus or generated annotation dataset. The scripts expect you to build or provide a local corpus under `datasets/fashion_action_reference/`.
+This repository provides the skill only. It does not include a dataset, crawler, training pipeline, or third-party fashion images.
 
-## What Is Included
+## Install
 
-- Codex skill: `.codex/skills/fashion-pose-reference/SKILL.md`
-- Harvest scripts for publicly reachable fashion editorial pages
-- Pose annotation task builders, validators, and contact-sheet helpers
-- Retrieval logic that separates hard body actions from emotion gates
+Clone the repository:
 
-## What Is Not Included
+```bash
+git clone https://github.com/MrCarlsama/fashion-pose-reference.git
+```
 
-- Downloaded fashion images
-- Full annotation batches
-- Contact sheets
-- Generated outputs
+Install as a global Codex skill:
 
-Those files are intentionally ignored by Git because they are large, source-dependent, and may carry third-party image rights.
+```bash
+mkdir -p ~/.codex/skills/fashion-pose-reference
+cp fashion-pose-reference/.codex/skills/fashion-pose-reference/SKILL.md \
+  ~/.codex/skills/fashion-pose-reference/SKILL.md
+```
 
-## Local Data Layout
+Or install it into a single project:
 
-Build or place your local corpus here:
+```bash
+mkdir -p .codex/skills/fashion-pose-reference
+cp fashion-pose-reference/.codex/skills/fashion-pose-reference/SKILL.md \
+  .codex/skills/fashion-pose-reference/SKILL.md
+```
+
+Restart Codex after installation if the skill does not appear immediately.
+
+## Use
+
+Call the skill by name:
 
 ```text
-datasets/fashion_action_reference/
-  manifest.jsonl
-  images/
-  pose_annotations/
+[$fashion-pose-reference] 孤独 背影 离场，女性角色，全身
 ```
 
-`manifest.jsonl` is the source of truth for image provenance. Each row should keep source URL, image URL, local path, dimensions, download method, and `sha256` so the corpus can be audited and rebuilt.
-
-## Harvest Images Locally
-
-```bash
-node scripts/harvest_magazine_images.mjs --target 20000 --sources fashionotography,designscene,lemile
-```
-
-Smaller smoke test:
-
-```bash
-node scripts/harvest_magazine_images.mjs --target 50 --sources designscene
-```
-
-Audit the local corpus:
-
-```bash
-node scripts/audit_fashion_dataset.mjs --min-count 20000
-```
-
-Rename images with magazine and issue month:
-
-```bash
-node scripts/rename_fashion_images.mjs --apply
-```
-
-## Pose Annotation Workflow
-
-Detailed pose extraction lives under:
+More examples:
 
 ```text
-datasets/fashion_action_reference/pose_annotations/
+[$fashion-pose-reference] 无聊 托腮 等待，半身，日常低能量
+[$fashion-pose-reference] 冷淡 抱臂 男模，全身，硬光
+[$fashion-pose-reference] 惊恐 警觉 后退，全身
+[$fashion-pose-reference] 给我一个人体模型简笔画动作参考提示词：兴奋 跳跃
 ```
 
-Generate a diverse 1,000-image target queue:
+The skill returns:
 
-```bash
-node scripts/build_diverse_pose_target.mjs
-```
+- `动作参考描述`
+- `人体模型简笔画生图提示词`
+- `验证用 imagegen 英文提示词`
+- `生成决策`
 
-Validate the 1,000-image target:
+## What It Enforces
 
-```bash
-node scripts/validate_pose_target.mjs --fail-if-incomplete true
-```
+The skill treats emotion as visible body mechanics, not as a loose label.
 
-Refresh pending tasks for the fixed 1,000-image target:
+- `托腮` must show hand-to-chin/face support.
+- `抱臂` must visibly close the chest with crossed or hidden arms.
+- `背影离场` must show a turned-away or leaving body.
+- `双手扶头/护头` must show both hands or arms touching, holding, wrapping, or protecting the head.
+- `后退/惊恐` must show recoil, backward weight shift, or retreat.
+- `兴奋/开心` needs real dynamic release, such as jump, dance, spin, run, large stride, or airborne motion.
 
-```bash
-node scripts/rebuild_pose_target_pending.mjs
-```
+If the body mechanic and emotion conflict, the skill should say so instead of pretending the pose is valid.
 
-Generate contact sheets from pending tasks:
+## Example Images
 
-```bash
-python3 scripts/build_pose_contact_sheet.py \
-  --tasks datasets/fashion_action_reference/pose_annotations/pending_tasks_1000_diverse.jsonl \
-  --batch 0 --count 6 --columns 3
-```
+These are small original pose diagrams included only to show the expected reference style. They are not dataset images.
 
-Generate full-corpus pending tasks only when you intend to annotate the full local corpus:
+| Request | Example |
+| --- | --- |
+| `孤独 背影 离场` | ![Lonely back-view leaving pose](examples/images/lonely-back-view-leaving.svg) |
+| `无聊 托腮 等待` | ![Bored chin-rest waiting pose](examples/images/bored-chin-rest-waiting.svg) |
+| `冷淡 抱臂` | ![Defensive crossed-arms pose](examples/images/defensive-crossed-arms.svg) |
+| `惊恐 后退` | ![Fear recoil retreat pose](examples/images/fear-recoil-retreat.svg) |
 
-```bash
-node scripts/build_pose_annotation_tasks.mjs
-```
+## Boundary
 
-Run vision annotation when `OPENAI_API_KEY` is available:
+This is a prompt-and-review skill. It does not train a model and does not ship a fashion corpus.
 
-```bash
-node scripts/annotate_pose_openai.mjs --limit 100
-```
-
-Validate annotation coverage:
-
-```bash
-node scripts/validate_pose_annotations.mjs
-```
-
-## Retrieval
-
-Generate a skill-style action reference from completed local annotations:
-
-```bash
-node scripts/generate_pose_reference.mjs \
-  --query "孤独 背影 离场" \
-  --person "女性角色" \
-  --limit 3
-```
-
-Explicit partial framing:
-
-```bash
-node scripts/generate_pose_reference.mjs \
-  --query "托腮 坐姿 无聊 半身" \
-  --person "女性角色" \
-  --framing any \
-  --limit 3
-```
-
-Run retrieval regression gates after changing retrieval or prompt logic:
-
-```bash
-node scripts/validate_pose_retrieval_gates.mjs
-```
-
-## Completion Rules
-
-Do not claim the 1,000-image pose target is complete unless this passes:
-
-```bash
-node scripts/validate_pose_target.mjs --fail-if-incomplete true
-```
-
-Do not claim the full local corpus is annotated unless this proves `unique_annotated_images: 20000`, `pending_images: 0`, and `full_corpus_complete: true`:
-
-```bash
-node scripts/validate_pose_annotations.mjs --fail-if-incomplete true
-```
+If you use your own reference images, make sure you have the right to store and publish them.
 
 ## License
 
-Code and documentation in this repository are released under the MIT License.
-
-Image files, source editorial pages, and third-party visual content are not included and are not licensed by this repository.
+Code, documentation, and included original SVG examples are released under the MIT License.

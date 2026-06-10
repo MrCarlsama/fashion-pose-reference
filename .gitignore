@@ -13,8 +13,6 @@ output/
 
 # Local corpus and generated annotation outputs are intentionally not shipped.
 datasets/fashion_action_reference/**
-!datasets/fashion_action_reference/
-!datasets/fashion_action_reference/README.md
 
 # Keep transient validation/contact-sheet artifacts local.
 *.log

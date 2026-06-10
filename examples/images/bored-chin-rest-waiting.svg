@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="540" viewBox="0 0 720 540" role="img" aria-labelledby="title desc">
+  <title id="title">Bored chin-rest waiting pose</title>
+  <desc id="desc">A seated mannequin leans into one hand with elbow support, low shoulders, and relaxed legs.</desc>
+  <rect width="720" height="540" fill="#f4f7f6"/>
+  <rect x="152" y="323" width="422" height="26" rx="4" fill="#90a4ae"/>
+  <rect x="198" y="348" width="28" height="105" fill="#90a4ae"/>
+  <rect x="502" y="348" width="28" height="105" fill="#90a4ae"/>
+  <circle cx="352" cy="132" r="39" fill="none" stroke="#222" stroke-width="10"/>
+  <path d="M344 171 C330 216 318 263 310 319" fill="none" stroke="#222" stroke-width="13" stroke-linecap="round"/>
+  <path d="M315 211 C279 234 258 270 252 323" fill="none" stroke="#222" stroke-width="12" stroke-linecap="round"/>
+  <path d="M252 323 L246 347" fill="none" stroke="#222" stroke-width="12" stroke-linecap="round"/>
+  <path d="M367 210 C403 225 425 257 427 298" fill="none" stroke="#222" stroke-width="12" stroke-linecap="round"/>
+  <path d="M427 298 C409 270 393 237 377 161" fill="none" stroke="#222" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="376" cy="160" r="11" fill="#222"/>
+  <path d="M310 319 C278 348 263 388 257 433" fill="none" stroke="#222" stroke-width="13" stroke-linecap="round"/>
+  <path d="M314 319 C363 342 398 374 427 421" fill="none" stroke="#222" stroke-width="13" stroke-linecap="round"/>
+  <path d="M236 434 L276 434" fill="none" stroke="#222" stroke-width="10" stroke-linecap="round"/>
+  <path d="M413 421 L457 421" fill="none" stroke="#222" stroke-width="10" stroke-linecap="round"/>
+  <path d="M443 184 C484 205 504 245 501 292" fill="none" stroke="#5e8c84" stroke-width="8" stroke-linecap="round"/>
+  <path d="M484 292 L501 292 L514 280" fill="none" stroke="#5e8c84" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

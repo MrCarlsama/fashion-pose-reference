@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="540" viewBox="0 0 720 540" role="img" aria-labelledby="title desc">
+  <title id="title">Fear recoil retreat pose</title>
+  <desc id="desc">A mannequin recoils backward with guarded head, raised shoulders, and an unstable retreating step.</desc>
+  <rect width="720" height="540" fill="#f7f7f2"/>
+  <path d="M0 430 L720 392 L720 540 L0 540 Z" fill="#e1e5df"/>
+  <circle cx="390" cy="126" r="38" fill="none" stroke="#222" stroke-width="10"/>
+  <path d="M384 166 C360 211 342 255 332 307" fill="none" stroke="#222" stroke-width="13" stroke-linecap="round"/>
+  <path d="M350 205 C320 190 298 167 286 136" fill="none" stroke="#222" stroke-width="12" stroke-linecap="round"/>
+  <path d="M286 136 C310 139 332 145 352 154" fill="none" stroke="#222" stroke-width="12" stroke-linecap="round"/>
+  <path d="M398 202 C430 188 452 165 464 134" fill="none" stroke="#222" stroke-width="12" stroke-linecap="round"/>
+  <path d="M464 134 C440 138 418 145 399 154" fill="none" stroke="#222" stroke-width="12" stroke-linecap="round"/>
+  <path d="M332 307 C287 330 256 365 236 421" fill="none" stroke="#222" stroke-width="13" stroke-linecap="round"/>
+  <path d="M333 307 C373 347 399 390 424 448" fill="none" stroke="#222" stroke-width="13" stroke-linecap="round"/>
+  <path d="M213 421 L256 421" fill="none" stroke="#222" stroke-width="10" stroke-linecap="round"/>
+  <path d="M407 448 L452 448" fill="none" stroke="#222" stroke-width="10" stroke-linecap="round"/>
+  <path d="M508 169 C558 202 586 246 592 303" fill="none" stroke="#b85050" stroke-width="9" stroke-linecap="round"/>
+  <path d="M595 323 L592 303 L575 291" fill="none" stroke="#b85050" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M222 182 C176 220 152 270 150 333" fill="none" stroke="#cdb9a4" stroke-width="15" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="540" viewBox="0 0 720 540" role="img" aria-labelledby="title desc">
+  <title id="title">Lonely back-view leaving pose</title>
+  <desc id="desc">A simple mannequin turns away and walks toward the edge of the frame with lowered head and collapsed shoulders.</desc>
+  <rect width="720" height="540" fill="#f7f4ef"/>
+  <path d="M0 420 C140 388 250 448 365 421 C500 390 612 412 720 382 L720 540 L0 540 Z" fill="#e7ded2"/>
+  <circle cx="378" cy="126" r="38" fill="none" stroke="#222" stroke-width="10"/>
+  <path d="M367 166 C358 213 353 260 349 306" fill="none" stroke="#222" stroke-width="13" stroke-linecap="round"/>
+  <path d="M351 206 C319 221 296 252 282 288" fill="none" stroke="#222" stroke-width="12" stroke-linecap="round"/>
+  <path d="M358 209 C395 222 425 247 445 283" fill="none" stroke="#222" stroke-width="12" stroke-linecap="round"/>
+  <path d="M349 306 C318 341 297 379 285 428" fill="none" stroke="#222" stroke-width="13" stroke-linecap="round"/>
+  <path d="M351 307 C383 342 402 380 415 429" fill="none" stroke="#222" stroke-width="13" stroke-linecap="round"/>
+  <path d="M264 428 L303 428" fill="none" stroke="#222" stroke-width="10" stroke-linecap="round"/>
+  <path d="M401 429 L441 437" fill="none" stroke="#222" stroke-width="10" stroke-linecap="round"/>
+  <path d="M255 167 C214 184 187 216 174 254" fill="none" stroke="#b45b4a" stroke-width="8" stroke-linecap="round"/>
+  <path d="M155 255 L174 254 L184 237" fill="none" stroke="#b45b4a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M510 94 C556 158 573 243 548 331" fill="none" stroke="#d4c5b4" stroke-width="18" stroke-linecap="round"/>
+  <path d="M530 332 L548 331 L560 315" fill="none" stroke="#d4c5b4" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
